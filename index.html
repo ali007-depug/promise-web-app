@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="./sass/all.min.css">
+    <!-- fav icon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.ico">
+    <!-- mamifest file -->
+    <link rel="manifest" href="manifest.json">
+    <!-- main css style -->
+    <link rel="stylesheet" href="./sass/main.css">
+    <title>Promise App </title>
+</head>
+
+<body>
+    <main>
+        <!-- Setting icon -->
+        <div class="gearIcon">
+            <i class="fa fa-gear" tabindex="0" role="button"></i>
+        </div>
+        <!-- settings Container -->
+        <div class="settings">
+            <!-- Themes  -->
+            <div class="themes">
+                <h4>change app theme</h4>
+                <ul>
+                    <li class="themeOne" data-themename="sky with clouds" tabindex="0" role="button">sky with clouds
+                    </li>
+                    <li class="themeTwo" data-themename="soft purple" tabindex="0" role="button">soft purple</li>
+                    <li class="themeThree" data-themename="sweet pink" tabindex="0" role="button">sweet pink</li>
+                    <li class="themeFour" data-themename="rose with chocolate" tabindex="0" role="button">rose with
+                        chocolate</li>
+                    <li class="themeFive active" data-themename="dreams" tabindex="0" role="button">dreams</li>
+                </ul>
+            </div>
+        </div>
+        <!-- app title -->
+        <div class="header">
+            <h2>Promise App</h2>
+        </div>
+        <!-- container for promises -->
+        <div class="cont">
+            <!-- input field and Add button -->
+            <div class="promise">
+                <input class="input" id="input" type="text" placeholder="I Promise My Self To ...">
+                <span class="add" id="add" tabindex="0" role="button">Add</span>
+            </div>
+            <!-- the place to show all promises with trash and checkbox option -->
+            <div class="promisesCont"></div>
+        </div>
+        <!-- icon to write a new promise -->
+        <img class="icon" src="./svgs/regular/pen-to-square.svg" alt="">
+        <!-- //btn to remove all item from local storge-->
+        <div class="removeAll" tabindex="0" role="button">
+            remove All
+        </div>
+    </main>
+    <div class="aboutMe">
+        <p>
+            built by : <a href="https://github.com/ali007-depug" target="_blank">Ali AbdElbagi</a>
+        </p>
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>

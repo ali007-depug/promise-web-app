@@ -1,0 +1,385 @@
+@use "_animation.scss";
+$main-color: #a3f7bf;
+$sec-color: #393e46;
+$thr-color: #222831;
+$for-color: #29a19c;
+
+$trans : all 0.5s; 
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  background-color: #333;
+}
+html{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+// main style
+main {
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $main-color;
+  width: calc(min(517px, 90%));
+  min-height: 88vh;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px $main-color;
+  position: relative;
+  overflow: hidden;
+  // setting icon's style
+  .gearIcon {
+    position: absolute;
+    left: 0px;
+    top: 55px;
+    z-index: 999;
+    background: $main-color;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: $trans;
+    i {
+      color: $thr-color;
+      cursor: pointer;
+      padding: 8px;
+    }
+    &.show {
+      left: calc(min(47.7%, 190px));
+    }
+  }
+  // settings style
+  .settings {
+    position: absolute;
+    left: -200px;
+    min-height: 100%;
+    width: calc(min(180px, 45%));
+    display: flex;
+    background-color: white;
+    transition:  $trans;
+    z-index: 1000;
+    flex-direction: column;
+    padding: 10px 5px;
+    border: 1px solid #7d7272;
+  background-color: $for-color;
+
+    &.showSettings {
+      left: 0;
+    }
+  }
+  // themes style
+  .themes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5px;
+    // theme title style
+    h4 {
+      font-size: clamp(11px, 2vw, 14px);
+      color:whitesmoke;
+      text-transform: capitalize;
+      margin: 10px 0;
+    }
+    // themes names style
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 0;
+      gap: 1rem;
+      li {
+        font-size: clamp(12px, 2vw, 15px);
+        padding: 8px 0;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 5px;
+        text-transform: capitalize;
+        box-shadow: 0px 1px 2px 0 #0d0d0d;
+        opacity: 0.6;
+        &:hover {
+          transform: scale(1.1);
+        }
+        &.active {
+          opacity: 1;
+        }
+      }
+      .themeOne {
+        background: linear-gradient(
+          to right,
+          #9fd3c7,
+          #385170,
+          #142d4c
+        );
+      }
+    }
+    .themeTwo {
+      background: linear-gradient(to right, #927fbf, #4f3b78, #363b4e);
+    }
+    .themeThree {
+      background: linear-gradient(to right, #724060 , #a070a1);
+    }
+    .themeFour {
+      background: linear-gradient(to right, #ea8a8a, #685454);
+    }
+    .themeFive {
+      background: linear-gradient(to right, #a3f7bf, #393e46, #29a19c, #222831);
+    }
+  }
+
+  // app title style
+  .header {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: $thr-color;
+    min-height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      color: $main-color;
+    }
+  }
+  // promises container style
+  .cont {
+    width: 85%;
+  }
+  // input field + "add" button
+  .promise {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    position: absolute;
+    bottom: 50px;
+    left: 114%;
+    transition:$trans;
+    width: 85%;
+    &.show {
+      left: 36px;
+    }
+    .input {
+      flex-grow: 1;
+      height: 40px;
+      position: relative;
+
+      &:focus {
+        outline: none;
+        border: 2px solid $for-color;
+        border-radius: 3px;
+      }
+    }
+    .add {
+      color: $main-color;
+      background-color: $for-color;
+      font-weight: 800;
+      padding: 12px;
+      border: 2px solid $sec-color;
+      transition: $trans;
+      cursor: pointer;
+      border-radius: 3px;
+      &:hover {
+        color: $sec-color;
+        border-color: $for-color; 
+      }
+    }
+  }
+  // promise name + trash icon + checkbox
+  .promisesCont {
+    margin-top: 30px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    max-height: 50vh;
+    overflow: scroll;
+    border-radius: 5px;
+    .promiseFromInput {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 10px;
+      min-height: 57px;
+      position: relative;
+      border-bottom: 1px solid $main-color;
+      background-color: $for-color;
+      &.done {
+        opacity: 0.5;
+        text-decoration: line-through $main-color;
+        .checkbox {
+          opacity: 0.4;
+        }
+      }
+
+      .date {
+        font-size: clamp(8px, 2vw, 11px);
+        color: $sec-color;
+        position: absolute;
+        bottom: 3px;
+        left: 40%;
+      }
+      .holder {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        position: relative;
+        .remove {
+          display: inline-block;
+          cursor: pointer;
+          color: $main-color;
+          transition: $trans;
+          border-radius: 4px;
+          i {
+            color: $sec-color;
+            font-size: 18px;
+            &:hover {
+              color: $main-color;
+            }
+          }
+        }
+        .checkbox {
+          opacity: 0;
+          width: 20px;
+          height: 20px;
+          position: relative;
+          z-index: 5;
+          margin: 0;
+          cursor: pointer;
+          left: -1px;
+          &:checked ~ .checkmark::after {
+            display: block;
+          }
+          &:hover ~ .checkmark {
+            background-color: $main-color;
+          }
+        }
+        .checkmark {
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          right: 1px;
+          background: $sec-color;
+          border-radius: 2px;
+          &::after {
+            content: "";
+            display: none;
+            position: absolute;
+            width: 6px;
+            height: 12px;
+            border-bottom: 3px solid $for-color;
+            border-right: 3px solid $for-color;
+            bottom: 4px;
+            transform: rotate(39deg);
+            right: 5px;
+          }
+        }
+      }
+    }
+  }
+  .icon {
+    width: 30px;
+    position: absolute;
+    bottom: 5px;
+    cursor: pointer;
+  }
+  // remove all button style
+  .removeAll {
+    position: absolute;
+    bottom: 2px;
+    padding: 8px;
+    cursor: pointer;
+    transition: $trans;
+    text-transform: capitalize;
+    background: $thr-color;
+    color: $main-color;
+    border-radius: 5px;
+    position: absolute;
+    left: -150px;
+    &:hover {
+      background-color: $for-color;
+    }
+    &.showRemove {
+      left: 8px;
+    }
+  }
+}
+
+//overlay
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(min(262px, 73%));
+  height: 150px;
+  background-color: $main-color;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  background-color: $for-color;
+  border-radius: 5px;
+  border: 2px solid $main-color;
+  font-size: clamp(14px, 3vw, 16px);
+  .popupTitle {
+    margin-top: 30px;
+    font-size: clamp(16px, 3vw, 20px);
+    font-weight: bold;
+    color: $main-color;
+  }
+  .holderYandNo {
+    margin-top: 40px;
+    display: flex;
+    gap: 2rem;
+    span {
+      color: $main-color;
+      border: 1px solid $sec-color;
+      border-radius: 3px;
+      padding: 3px;
+      cursor: pointer;
+      &:hover {
+        border-color: $thr-color;
+        background-color: $main-color;
+        color: $for-color;
+      }
+    }
+  }
+}
+// about style
+.aboutMe {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 100%;
+  left: 50%;
+  min-width: 400px;
+  text-align: center;
+  color: white;
+  text-transform: capitalize;
+  display: flex;
+justify-content: center;
+gap: 1rem;
+  p {
+    margin: 0;
+  }
+  a {
+    border-bottom:1px solid plum;
+    text-decoration: none;
+    color: plum;
+  }
+  .year {
+    font-size: 15px;
+    border-left: 2px solid plum;
+    padding: 0 5px;
+    width: 50px;
+  }
+}
